@@ -32,7 +32,14 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint --cache --fix",
+      "prettier --write",
+      "eslint --fix",
+      "jest --bail --findRelatedTests"
+    ],
+    "*.html": [
+      "prettier --write"
+    ],
+    "*.scss": [
       "prettier --write"
     ]
   }
