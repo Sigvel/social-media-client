@@ -1,6 +1,6 @@
 {
   "name": "css-frameworks-ca",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -13,10 +13,12 @@
     "test-unit": "jest --coverage",
     "prepare": "husky install"
   },
-    "jest": {
-      "resetMocks": false,
-      "setupFiles": ["jest-localstorage-mock"]
-    },
+  "jest": {
+    "resetMocks": false,
+    "setupFiles": [
+      "jest-localstorage-mock"
+    ]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
