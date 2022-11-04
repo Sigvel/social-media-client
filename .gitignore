@@ -3,3 +3,5 @@
 .eslintcache
 .vscode/settings.json
 6
+coverage
+notes.md
