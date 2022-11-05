@@ -1,6 +1,10 @@
 import { save, load } from "../../storage/index.js";
 import { logout } from "../../api/auth/logout";
 
+/**
+ * Tests localstorage functions, sets localstorage key, checks if it exists
+ * also checks that the token does not exist when logging out.
+ */
 describe("storage", () => {
   it("Saves key to localStorage and can retrieves key from localStorage, logout function works correctly", () => {
     const key = "token";
