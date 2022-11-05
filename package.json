@@ -9,9 +9,10 @@
     "format": "prettier -w src/js/**/*.js",
     "lint": "eslint src/**/*.js",
     "lint-fix": "eslint src/**/*.js --cache --fix",
-    "test": "npm run test-unit",
     "test-unit": "jest --coverage",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "npm run test-e2e",
+    "test-e2e": "cypress open"
   },
   "jest": {
     "resetMocks": false,
