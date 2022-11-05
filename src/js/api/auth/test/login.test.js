@@ -1,19 +1,29 @@
 import { login } from "../login";
 
-// TODO Make login mock jest test,
-// login function returns valid token when provided with valid credentials. ?
-
-// Login test items
-const TOKEN = "hf65ef3je3f73thn78vh89w789";
+/**
+ * user content mock
+ */
 const BAD_EMAIL = "Jester@gmail.com";
 const EMAIL = "Jester@noroff.no";
 const PASSWORD = "h83i8y0fvf";
 
+/**
+ * mock token
+ */
+const TOKEN = "hf65ef3je3f73thn78vh89w789";
+
+/**
+ * mock user
+ */
 const user = {
   name: "tony",
   email: EMAIL,
 };
 
+/**
+ * Mock fetch to return successful api fetch
+ * @returns status fetch success
+ */
 const fetchSuccess = () => {
   return Promise.resolve({
     ok: true,
@@ -23,6 +33,12 @@ const fetchSuccess = () => {
   });
 };
 
+/**
+ * Mock fetch to return failed api fetch
+ * @param {number} status contains the error value
+ * @param {string} statusText contains the statusText value
+ * @returns status fetch failure
+ */
 const fetchFailure = (status = 404, statusText = "Not Found") => {
   return Promise.resolve({
     ok: false,
@@ -30,8 +46,6 @@ const fetchFailure = (status = 404, statusText = "Not Found") => {
     statusText,
   });
 };
-
-// Login function does not provide undefined/null return on bad input
 
 /**
  * Test if the login post function returns valid token or not
