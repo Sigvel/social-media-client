@@ -1,19 +1,25 @@
 import { createPost } from "../create";
 
-// TODO Make create item mock jest test.
-// Create item function creates a new item on the API
-
+/**
+ * post content mocks
+ */
 const TEST_TITLE = "Mister goodyear";
 const BODY = "test body";
 const TEST_URL = "https://gomgomjalla.jpg";
 const TAGS = "";
+/**
+ * Post mock
+ */
 const post = {
   title: TEST_TITLE,
   body: BODY,
   media: TEST_URL,
   tags: TAGS,
 };
-
+/**
+ * Mock fetch to return successful api fetch
+ * @returns status fetch success
+ */
 const fetchSuccess = () => {
   return Promise.resolve({
     ok: true,
@@ -22,7 +28,12 @@ const fetchSuccess = () => {
     json: () => Promise.resolve({ ...post }),
   });
 };
-
+/**
+ * Mock fetch to return failed api fetch
+ * @param {number} status contains the error value
+ * @param {string} statusText contains the statusText value
+ * @returns status fetch failure
+ */
 const fetchFailure = (status = 404, statusText = "Not Found") => {
   return Promise.resolve({
     ok: false,
