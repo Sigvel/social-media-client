@@ -1,18 +1,20 @@
 describe("Validates user invalid login inputs correctly according to API restrictions", () => {
   it("Social-media-app: User cant login with invalid inputs based on API restrictions", () => {
     cy.visit("http://127.0.0.1:8485/");
+    cy.clearLocalStorage();
     cy.wait(1000);
     cy.get('form [data-auth="login"]').contains("Login").click();
     cy.wait(1000);
     cy.get('form [id="loginEmail"]').type(
-      "legolass@noroff.no",
+      "legolass@norof.no",
       { force: true },
       { delay: 300 }
     );
-    cy.get('form [id="loginPassword"]').type("1234", { delay: 200 });
+    cy.get('form [id="loginPassword"]').type("12345678", { delay: 200 });
     cy.get('form [class="btn btn-success"]')
       .contains("Login")
       .click({ force: true });
+    cy.then(() => expect(window.localStorage.getItem("token")).to.be.null);
   });
 });
 
@@ -30,6 +32,7 @@ describe("Validates user inputs correctly based on API restrictions", () => {
     );
     cy.get('form [id="loginPassword"]').type("12345678", { delay: 200 });
     cy.get('form [class="btn btn-success"]').contains("Login").click();
+    cy.then(() => expect(window.localStorage.getItem("token")).to.not.be.null);
   });
 
   it("Social-media-app: User can successfully create a post according to API restrictions and delete it", () => {
@@ -55,10 +58,5 @@ describe("Validates user inputs correctly based on API restrictions", () => {
     cy.wait(27000);
     cy.get("button").contains("Delete").click();
     cy.wait(1000);
-  });
-
-  it("Social-media-app: User can successfully log out of the account", () => {
-    cy.wait(1500);
-    cy.get("[data-auth='logout']").contains("Logout").click();
   });
 });
