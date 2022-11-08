@@ -11,7 +11,11 @@ jobs:
       - name: Checkout under $GITHUB_WORKSPACE
         uses: actions/checkout@main
 
+      - name: Run vite
+        run: npm run dev
+
       - name: run cypress tests with electron
         uses: cypress-io/github-action@v4
         with:
+          wait-on: "http://127.0.0.1:8485/"
           browser: electron
