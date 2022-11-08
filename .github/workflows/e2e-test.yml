@@ -11,6 +11,12 @@ jobs:
       - name: Checkout under $GITHUB_WORKSPACE
         uses: actions/checkout@main
 
+      - name: install npm
+        run: npm i
+
+      - name: Build SASS
+      - run: npm run build
+
       - name: Run vite
         run: npm run dev
 
