@@ -58,7 +58,7 @@ describe("Validates user inputs correctly based on API restrictions", () => {
   });
 
   it("Social-media-app: User can successfully log out of the account", () => {
-    cy.wait(1000);
+    cy.wait(1500);
     cy.get("[data-auth='logout']").contains("Logout").click();
   });
 });
