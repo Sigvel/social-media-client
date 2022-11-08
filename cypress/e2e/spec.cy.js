@@ -1,6 +1,6 @@
 describe("Validates user invalid login inputs correctly according to API restrictions", () => {
   it("Social-media-app: User cant login with invalid inputs based on API restrictions", () => {
-    cy.visit("http://127.0.0.1:5500/");
+    cy.visit("/");
     cy.wait(1000);
     cy.get('form [data-auth="login"]').contains("Login").click();
     cy.wait(1000);
@@ -18,7 +18,7 @@ describe("Validates user invalid login inputs correctly according to API restric
 
 describe("Validates user inputs correctly based on API restrictions", () => {
   it("social-media app: User can log in with valid user credentials", () => {
-    cy.visit("http://127.0.0.1:5500/");
+    cy.visit("/");
     cy.clearLocalStorage();
     cy.wait(800);
     cy.get('form [data-auth="login"]').contains("Login").click();
