@@ -32,11 +32,11 @@ describe("Validates user inputs correctly based on API restrictions", () => {
     );
     cy.get('form [id="loginPassword"]').type("12345678", { delay: 200 });
     cy.get('form [class="btn btn-success"]').contains("Login").click();
-    cy.then(() => expect(window.localStorage.getItem("token")).to.not.be.null);
   });
 
   it("Social-media-app: User can successfully create a post according to API restrictions and delete it", () => {
     cy.wait(3000);
+    cy.then(() => expect(window.localStorage.getItem("token")).to.not.be.null);
     cy.get('[id="footerActions"] a').contains("New Post").click();
     cy.get('form [id="postTags"]').type("cypress, testing", { delay: 100 });
     cy.get('form [id="postMedia"]').type("https://ghweirhbgiosrhgi.jpg");
