@@ -3,7 +3,7 @@ describe("Validates user invalid login inputs correctly according to API restric
     cy.visit("http://127.0.0.1:8485/");
     cy.clearLocalStorage();
     cy.wait(1000);
-    cy.get('form [data-auth="login"]').contains("Login").click();
+    cy.get('[data-auth="login"]:visible').contains("Login").click();
     cy.wait(1000);
     cy.get('form [id="loginEmail"]').type(
       "legolass@norof.no",
@@ -23,7 +23,7 @@ describe("Validates user inputs correctly based on API restrictions", () => {
     cy.visit("http://127.0.0.1:8485/");
     cy.clearLocalStorage();
     cy.wait(800);
-    cy.get('form [data-auth="login"]').contains("Login").click();
+    cy.get('[data-auth="login"]:visible').contains("Login").click();
     cy.wait(1500);
     cy.get('form [id="loginEmail"]').type(
       "legolass@noroff.no",

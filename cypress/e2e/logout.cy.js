@@ -3,7 +3,7 @@ describe("User can logout", () => {
     cy.clearLocalStorage();
     cy.visit("http://127.0.0.1:8485/");
     cy.wait(1000);
-    cy.get('form [data-auth="login"]').contains("Login").click();
+    cy.get('[data-auth="login"]:visible').contains("Login").click();
     cy.wait(1000);
     cy.get('form [id="loginEmail"]').type(
       "legolass@noroff.no",
