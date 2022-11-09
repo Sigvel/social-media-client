@@ -16,7 +16,7 @@ const TOKEN = "hf65ef3je3f73thn78vh89w789";
  * mock user
  */
 const user = {
-  name: "tony",
+  name: "Tony",
   email: EMAIL,
 };
 
@@ -57,8 +57,9 @@ describe("Login", () => {
   it("Returns a valid token when provided with valid credentials", async () => {
     global.fetch = jest.fn(() => fetchSuccess());
     const item = await login(EMAIL, PASSWORD);
-    expect(EMAIL).toMatch("@noroff.no");
     expect(PASSWORD.length).toBeGreaterThanOrEqual(8);
+    expect(item.email).toMatch("Jester@noroff.no");
+    expect(item.name).toMatch("Tony");
     expect(item.TOKEN).toEqual(TOKEN);
   });
   /**
