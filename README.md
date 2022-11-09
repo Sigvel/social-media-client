@@ -9,7 +9,7 @@
 [![Deploy static content to Pages](https://github.com/Sigvel/social-media-client/actions/workflows/pages.yml/badge.svg)](https://github.com/Sigvel/social-media-client/actions/workflows/pages.yml)
 ### About
 
-This project is a part of the workflow - Cource Assignment from Noroff. The goal of this assignment is 
+This project is a part of the workflow - Course Assignment from Noroff. The goal of this assignment is 
 to improve the quality of an existing environment by establishing useful workflows that make the development process more efficient.
 I have configured to have pre-commit checks using Prettier, ESLint and Jest, to ensure code quality is maintained.
 I have also established branch protections with github action workflows to automatically check that my unit and end to end tests
@@ -23,13 +23,13 @@ are passing before allowed to merge into the branch.
 - Open with Github Desktop or Download ZIP
 
 Then:
-- Setup repo in choosen location 
+- Setup repo in chosen location 
 - Open project folder in your code editor.
 - Open terminal in code editor, if using external terminal remember to navigate into project folder.
 
 #### Setup
 
-Initialise git in project folder to avoid errors related to husky setup.
+Initialize git in project folder to avoid errors related to husky setup.
 
 ```
 git init
