@@ -25,7 +25,7 @@
     ]
   },
   "keywords": [],
-  "author": "",
+  "author": "Noroff",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.19.3",
