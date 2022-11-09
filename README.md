@@ -103,7 +103,7 @@ or
 npm run test-e2e-cli
 ```
 
-#### Unit Testing Dependencies
+#### Unit Testing Dependency
 
 localStorage mock:
 
@@ -121,7 +121,7 @@ Settings in package.json:
   },
 ```
 
-#### Code Formatters
+### Code Formatters
 
 Install prettier:
 ```
@@ -149,4 +149,111 @@ The following ESlint setup was used for this project:
 ✔ What format do you want your config file to be in? · JSON
 ```
 
+Install babel for support of ES6 modules
+```
+npm -D install @babel/core@7.19.3 @babel/preset-env@7.19.4
+```
 
+Created `babel.config.json` and added following:
+```js
+{
+  "presets": [["@babel/preset-env", { "targets": { "node": "current" } }]]
+}
+```
+
+
+### Installed dependencies
+```
+git
+Prettier
+eslint
+husky
+Babel
+cypress
+eslint-plugin-cypress
+jest
+eslint-plugin-jest
+jest-localstorage-mock
+babel/core
+babel/preset-env
+vite
+```
+##### Scripts
+
+```json
+    "format": "prettier -w src/js/**/*.js",
+    "lint": "eslint src/**/*.js",
+    "lint-fix": "eslint src/**/*.js --cache --fix",
+    "test-unit": "jest",
+    "prepare": "husky install",
+    "test": "npm run test-unit && npm run test-e2e-cli",
+    "test-e2e": "cypress open",
+    "test-e2e-cli": "cypress run",
+    "dev": "vite",
+    "vite-build": "vite build",
+    "vite-preview": "vite preview"
+```
+
+### Configuration files
+
+***Eslint.config.json***
+```json
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": "eslint:recommended",
+    "overrides": [
+        {
+            "files": ["**/*.test.js"],
+            "env": { "jest": true },
+            "plugins": ["jest"],
+            "extends": ["plugin:jest/recommended"],
+            "rules": { "jest/prefer-expect-assertions": "off", "no-unused-vars": "off", "no-undef": "off" }
+          },
+          {
+            "files": ["**/*.cy.js", "cypress.config.js"],
+            "env": { "cypress/globals": true },
+            "plugins": ["cypress"],
+            "extends": ["plugin:cypress/recommended"],
+            "rules": {
+              "cypress/no-unnecessary-waiting": "off",
+              "no-unused-vars": "off",
+              "no-undef": "off"
+            }
+          }
+      
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "rules": {
+    }
+}
+```
+#### Vite
+Because of high security vulnerabilities related to live-server i switched it
+out for vite.
+
+Installed dependency
+```
+npm i -D vite
+```
+
+Added script in `package.json` to run the live server use
+`npm run dev`
+
+***vite.config.json***
+```
+export default {
+  server: {
+    port: 8485,
+    hot: true,
+    host: "127.0.0.1",
+  },
+};
+```
+
+To configure port and host address you can change it in the vite config file shown above.
