@@ -123,12 +123,12 @@ Settings in package.json:
 
 ### Code Formatters
 
-Install prettier:
+Installed prettier:
 ```
 npm i -D prettier
 ```
 
-Install ESlint:
+Installed ESlint:
 ```
 npm i -D eslint
 ```
@@ -149,7 +149,7 @@ The following ESlint setup was used for this project:
 ✔ What format do you want your config file to be in? · JSON
 ```
 
-Install babel for support of ES6 modules
+Installed babel for support of ES6 modules
 ```
 npm -D install @babel/core@7.19.3 @babel/preset-env@7.19.4
 ```
@@ -178,7 +178,7 @@ babel/core
 babel/preset-env
 vite
 ```
-##### Scripts
+##### Scripts added
 
 ```json
     "format": "prettier -w src/js/**/*.js",
@@ -194,9 +194,9 @@ vite
     "vite-preview": "vite preview"
 ```
 
-### Configuration files
+### ESlint Configuration file added
 
-***Eslint.config.json***
+***eslint.config.json***
 ```json
 {
     "env": {
@@ -233,6 +233,7 @@ vite
     }
 }
 ```
+
 #### Vite
 Because of high security vulnerabilities related to live-server i switched it
 out for vite.
@@ -242,7 +243,8 @@ Installed dependency
 npm i -D vite
 ```
 
-Added script in `package.json` to run the live server use
+Added scripts in `package.json` to run the live server
+
 `npm run dev`
 
 ***vite.config.json***
