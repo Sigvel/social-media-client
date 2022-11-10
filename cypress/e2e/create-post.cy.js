@@ -17,7 +17,7 @@ describe("Social-media-app: Create item form validates inputs correctly based on
     cy.get('form [class="btn btn-success"]')
       .contains("Login")
       .click({ force: true });
-    cy.wait(1000);
+    cy.wait(1500);
     cy.then(() => expect(window.localStorage.getItem("token")).not.to.be.null);
     cy.then(
       () => expect(window.localStorage.getItem("profile")).not.to.be.null
