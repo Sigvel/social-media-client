@@ -79,16 +79,19 @@ npm run test-unit
 
 Following test files is Added:
 
-- login-create.cy.js
+- login.cy.js
   - Tests login with invalid email.
+  - Tests login with invalid password.
   - Tests login with valid credentials.
-  - Tests creation of post with invalid credentials.
-  - Tests creation of post with valid credentials.
 - logout.cy.js
   - Tests if token is present in localstorage.
   - Tests if logout button, logs out user.
   - Tests if token is not present in localstorage.
-
+- create-post.cy.js
+  - User can successfully create post and delete it.
+  - User cant make post without title.
+  - User cant make post without image.
+  
 before running cypress tests ensure local server is running using
 ```
 npm run dev
