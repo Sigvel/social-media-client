@@ -52,7 +52,7 @@ describe("Validates user inputs correctly based on API restrictions", () => {
     );
     cy.get('form [id="loginPassword"]').type("12345678", { delay: 200 });
     cy.get('form [class="btn btn-success"]').contains("Login").click();
-    cy.wait(800);
+    cy.wait(1500);
     cy.then(() => expect(window.localStorage.getItem("token")).not.to.be.null);
     cy.then(
       () => expect(window.localStorage.getItem("profile")).not.to.be.null
