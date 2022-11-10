@@ -2,6 +2,7 @@ describe("Social-media-app: Create item form validates inputs correctly based on
   it("Social-media-app: User can successfully create a post and delete it", () => {
     cy.visit("http://127.0.0.1:8485/");
     cy.clearLocalStorage();
+    cy.wait(500);
     cy.then(() => expect(window.localStorage.getItem("token")).to.be.null);
     cy.then(() => expect(window.localStorage.getItem("profile")).to.be.null);
     cy.wait(1000);
@@ -44,6 +45,7 @@ describe("Social-media-app: Create item form validates inputs correctly based on
   it("Social-media-app: User cant make a post without title", () => {
     cy.visit("http://127.0.0.1:8485/");
     cy.clearLocalStorage();
+    cy.wait(500);
     cy.then(() => expect(window.localStorage.getItem("token")).to.be.null);
     cy.then(() => expect(window.localStorage.getItem("profile")).to.be.null);
     cy.wait(1000);
