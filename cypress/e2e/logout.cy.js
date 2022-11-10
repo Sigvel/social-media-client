@@ -16,7 +16,11 @@ describe("User can logout", () => {
       .click({ force: true });
     cy.wait(1500);
     cy.then(() => expect(window.localStorage.getItem("token")).to.not.be.null);
+    cy.then(
+      () => expect(window.localStorage.getItem("profile")).to.not.be.null
+    );
     cy.get("button[data-auth='logout']").click();
     cy.then(() => expect(window.localStorage.getItem("token")).to.be.null);
+    cy.then(() => expect(window.localStorage.getItem("profile")).to.be.null);
   });
 });

@@ -1,5 +1,5 @@
 describe("Validates user invalid login inputs correctly according to API restrictions", () => {
-  it("Social-media-app: User cant login with invalid inputs based on API restrictions", () => {
+  it("Social-media-app: User cant login with invalid email", () => {
     cy.visit("http://127.0.0.1:8485/");
     cy.clearLocalStorage();
     cy.wait(1000);
@@ -15,7 +15,27 @@ describe("Validates user invalid login inputs correctly according to API restric
       .contains("Login")
       .click({ force: true });
     cy.then(() => expect(window.localStorage.getItem("token")).to.be.null);
+    cy.then(() => expect(window.localStorage.getItem("profile")).to.be.null);
   });
+});
+
+it("Social-media-app: User cant login with invalid password", () => {
+  cy.visit("http://127.0.0.1:8485/");
+  cy.clearLocalStorage();
+  cy.wait(1000);
+  cy.get('[data-auth="login"]:visible').contains("Login").click();
+  cy.wait(1000);
+  cy.get('form [id="loginEmail"]').type(
+    "legolass@noroff.no",
+    { force: true },
+    { delay: 300 }
+  );
+  cy.get('form [id="loginPassword"]').type("123456", { delay: 200 });
+  cy.get('form [class="btn btn-success"]')
+    .contains("Login")
+    .click({ force: true });
+  cy.then(() => expect(window.localStorage.getItem("token")).to.be.null);
+  cy.then(() => expect(window.localStorage.getItem("profile")).to.be.null);
 });
 
 describe("Validates user inputs correctly based on API restrictions", () => {
@@ -32,31 +52,10 @@ describe("Validates user inputs correctly based on API restrictions", () => {
     );
     cy.get('form [id="loginPassword"]').type("12345678", { delay: 200 });
     cy.get('form [class="btn btn-success"]').contains("Login").click();
-  });
-
-  it("Social-media-app: User can successfully create a post according to API restrictions and delete it", () => {
-    cy.wait(3000);
-    cy.then(() => expect(window.localStorage.getItem("token")).to.not.be.null);
-    cy.get('[id="footerActions"] a').contains("New Post").click();
-    cy.get('form [id="postTags"]').type("cypress, testing", { delay: 100 });
-    cy.get('form [id="postMedia"]').type("https://ghweirhbgiosrhgi.jpg");
-    cy.get('form [id="postBody"]').type(
-      "Lorem ipsum testing the post function on the website",
-      { delay: 150 }
+    cy.wait(1500);
+    cy.then(() => expect(window.localStorage.getItem("token")).not.to.be.null);
+    cy.then(
+      () => expect(window.localStorage.getItem("profile")).not.to.be.null
     );
-    cy.get('form button [data-action="publish"]').click();
-    cy.wait(2000);
-    cy.get('form [id="postTitle"]').type("Testing with cypress", {
-      delay: 100,
-    });
-    cy.get('form [id="postMedia"]').clear();
-    cy.get('form [id="postMedia"]').type(
-      "https://i.picsum.photos/id/43/1280/831.jpg?hmac=glK-rQ0ppFClW-lvjk9FqEWKog07XkOxJf6Xg_cU9LI"
-    );
-    cy.wait(500);
-    cy.get('form button [data-action="publish"]').click();
-    cy.wait(27000);
-    cy.get("button").contains("Delete").click();
-    cy.wait(1000);
   });
 });
