@@ -37,7 +37,7 @@ describe("Social-media-app: Create item form validates inputs correctly based on
     );
     cy.wait(500);
     cy.get('form button [data-action="publish"]').click();
-    cy.wait(2000);
+    cy.wait(3000);
     cy.get("button").contains("Delete").click();
     cy.wait(1000);
   });
@@ -65,7 +65,7 @@ describe("Social-media-app: Create item form validates inputs correctly based on
     cy.then(
       () => expect(window.localStorage.getItem("profile")).not.to.be.null
     );
-    cy.wait(500);
+    cy.wait(800);
     cy.get('[id="footerActions"] a').contains("New Post").click();
     cy.wait(800);
     cy.get('form [id="postTags"]').type("cypress, testing", { delay: 100 });
