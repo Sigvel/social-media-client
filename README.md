@@ -152,12 +152,10 @@ The following ESlint setup was used for this project:
 ✔ What format do you want your config file to be in? · JSON
 ```
 
-```
 Installed babel for support of ES6 modules
 ```
 npm -D install @babel/core@7.19.3 @babel/preset-env@7.19.4
 ```
-
 
 Created `babel.config.json` and added following:
 
@@ -185,8 +183,8 @@ babel/core
 babel/preset-env
 vite
 ```
-##### Scripts added
 
+##### Scripts added
 ```json
     "format": "prettier -w src/js/**/*.js",
     "lint": "eslint src/**/*.js",
@@ -251,8 +249,7 @@ Installed dependency
 npm i -D vite
 ```
 
-
-Added scripts in `package.json` to run the live server
+Added script in `package.json` to run the live server
 
 `npm run dev`
 
