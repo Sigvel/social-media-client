@@ -48,7 +48,8 @@
   "lint-staged": {
     "*.js": [
       "prettier --write",
-      "eslint --fix"
+      "eslint --fix",
+      "jest --findRelatedTests --passWithNoTests"
     ],
     "*.html": [
       "prettier --write"
